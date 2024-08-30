@@ -1,5 +1,9 @@
 {
     "scripts": {
         "start": "live-server --open=dist"
+    },
+    "dependencies": {
+        "live-server": "^1.2.2",
+        "package.json": "^2.0.1"
     }
 }

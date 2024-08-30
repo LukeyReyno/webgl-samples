@@ -1,17 +1,23 @@
 import {defaultShaders, defaultVertexAttributes} from '../../../src/default_shaders.js'
+import {runFloatLinearTest} from '../../../src/test_float_linear.js'
 
 var gl;
+var canvas;
 
 const setup = () => {    
     // Request html canvas element 
-    var canvas = document.getElementById("canvas"); 
+    canvas = document.getElementById("canvas"); 
 
     // Create a WebGL rendering context 
     gl = canvas.getContext("webgl2"); 
 
     // Tell user if their browser does not support WebGL 
     if (!gl) { 
-        alert("Your browser does not support WebGL"); 
+        // alert("Your browser does not support WebGL");
+        gl = canvas.getContext("webgl");
+    }
+    if (!gl) {
+        console.log("Your browser does not support WebGL");
     }
 
     // Set the color of the canvas. 
@@ -87,6 +93,8 @@ const draw = (program) => {
 }
 
 setup();
-const program = createProgram();
-createVertexBuffers(program);
-draw(program);
+// const program = createProgram();
+// createVertexBuffers(program);
+// draw(program);
+
+runFloatLinearTest(gl, canvas);
