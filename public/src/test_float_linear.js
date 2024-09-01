@@ -58,7 +58,7 @@ function createProgram(gl, vsSource, fsSource) {
 }
 
 function runFloatLinearTest(gl, canvas) {
-    const ext = true;//getFloatLinearExtension(gl);
+    const ext = getFloatLinearExtension(gl);
 
     // Initialize the shaders and program
     const program = createProgram(gl, vsSource, fsSource);

@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "start": "live-server --open=dist"
+        "start": "live-server"
     },
     "dependencies": {
         "live-server": "^1.2.2",
