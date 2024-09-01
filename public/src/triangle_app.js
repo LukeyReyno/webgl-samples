@@ -1,25 +1,10 @@
-import {defaultShaders, defaultVertexAttributes} from '../../../src/default_shaders.js'
+import {setup} from './setup.js'
+import {defaultShaders, defaultVertexAttributes} from './default_shaders.js'
 
-var gl;
+const context = {};
+setup(context);
 
-const setup = () => {    
-    // Request html canvas element 
-    var canvas = document.getElementById("canvas"); 
-
-    // Create a WebGL rendering context 
-    gl = canvas.getContext("webgl2"); 
-
-    // Tell user if their browser does not support WebGL 
-    if (!gl) { 
-        alert("Your browser does not support WebGL"); 
-    }
-
-    // Set the color of the canvas. 
-    // Parameters are RGB colors (red, green, blue, alpha) 
-    gl.clearColor(0, 0.6, 0.5, 1.0); 
-    // Clear the color buffer with specified color 
-    gl.clear(gl.COLOR_BUFFER_BIT);
-}
+const { gl, canvas } = context;
 
 const createProgram = () => {
     // Create WebGl Shader objects 
@@ -85,8 +70,6 @@ const draw = (program) => {
     // Draw the triangle 
     gl.drawArrays(gl.TRIANGLES, 0, 3);
 }
-
-setup();
 const program = createProgram();
 createVertexBuffers(program);
 draw(program);
